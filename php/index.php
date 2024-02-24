@@ -10,6 +10,8 @@
     $urlResponse = file_get_contents($apiUrl);
 
     $users = json_decode($urlResponse, true);
+    if(!$users) return print_r("Erro ao buscar usuários aleatórios!\n");
+    
     print_r("\n--- Usuários gerados ---\n\n");
     foreach($users as $user) {
         print_r("Nome: {$user['first_name']} {$user['last_name']}\n");
